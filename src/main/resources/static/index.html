@@ -1,529 +1,901 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="robots" content="index, follow" />
-<style type="text/css">.bx-composite-btn {background: url("sprite-1x.png")/*tpa=http://gcmatrix.com/bitrix/images/main/composite/sprite-1x.png*/ no-repeat right 0 #e94524;border-radius: 15px;color: #ffffff !important;display: inline-block;line-height: 30px;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;font-size: 12px !important;font-weight: bold !important;height: 31px !important;padding: 0 42px 0 17px !important;vertical-align: middle !important;text-decoration: none !important;}@media screen   and (min-device-width: 1200px)   and (max-device-width: 1600px)   and (-webkit-min-device-pixel-ratio: 2)  and (min-resolution: 192dpi) {.bx-composite-btn {background-image: url("sprite-2x.png")/*tpa=http://gcmatrix.com/bitrix/images/main/composite/sprite-2x.png*/;background-size: 42px 124px;}}  .bx-composite-btn-fixed {position: absolute;top: -45px;right: 15px;z-index: 10;}  .bx-btn-white {background-position: right 0;color: #fff !important;}  .bx-btn-black {background-position: right -31px;color: #000 !important;}  .bx-btn-red {background-position: right -62px;color: #555 !important;}  .bx-btn-grey {background-position: right -93px;color: #657b89 !important;}  .bx-btn-border {border: 1px solid #d4d4d4;height: 29px !important;line-height: 29px !important;}  .bx-composite-loading {display: block;width: 40px;height: 40px;background: url("loading.gif")/*tpa=http://gcmatrix.com/bitrix/images/main/composite/loading.gif*/;}</style>
-<script type="text/javascript" data-skip-moving="true">(function(w, d) {var v = w.frameCacheVars = {'CACHE_MODE':'HTMLCACHE','banner':{'url':'http://www.1c-bitrix.ru/composite/','text':'Быстро с 1С-Битрикс','bgcolor':'#ff045f','style':'white'},'storageBlocks':[],'dynamicBlocks':[],'AUTO_UPDATE':true,'AUTO_UPDATE_TTL':'0'};var inv = false;if (v.AUTO_UPDATE === false){if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0){var lm = Date.parse(d.lastModified);if (!isNaN(lm)){var td = new Date().getTime();if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td){w.frameRequestStart = false;w.preventAutoUpdate = true;return;}inv = true;}}else{w.frameRequestStart = false;w.preventAutoUpdate = true;return;}}var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null);if (!r) { return; }w.frameRequestStart = true;var m = v.CACHE_MODE; var l = w.location; var x = new Date().getTime();var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : "");var u = l.protocol + "//" + l.host + l.pathname + q;r.open("GET", u, true);r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic");r.setRequestHeader("BX-CACHE-MODE", m);r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : "");if (inv){r.setRequestHeader("BX-INVALIDATE-CACHE", "Y");}try { r.setRequestHeader("BX-REF", d.referrer || "");} catch(e) {}if (m === "APPCACHE"){r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS));r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : "");}r.onreadystatechange = function() {if (r.readyState != 4) { return; }var a = r.getResponseHeader("BX-RAND");var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false;if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)){var f = {error:true, reason:a!=x?"bad_rand":"bad_status", url:u, xhr:r, status:r.status};if (w.BX && w.BX.ready){BX.ready(function() {setTimeout(function(){BX.onCustomEvent("onFrameDataRequestFail", [f]);}, 0);});}else{w.frameRequestFail = f;}return;}if (b){b.onFrameDataReceived(r.responseText);if (!w.frameUpdateInvoked){b.update(false);}w.frameUpdateInvoked = true;}else{w.frameDataString = r.responseText;}};r.send();})(window, document);</script>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="index, follow"/>
+    <style type="text/css">.bx-composite-btn {
+        background: url("sprite-1x.png") /*tpa=http://gcmatrix.com/bitrix/images/main/composite/sprite-1x.png*/ no-repeat right 0 #e94524;
+        border-radius: 15px;
+        color: #ffffff !important;
+        display: inline-block;
+        line-height: 30px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        height: 31px !important;
+        padding: 0 42px 0 17px !important;
+        vertical-align: middle !important;
+        text-decoration: none !important;
+    }
+
+    @media screen   and (min-device-width: 1200px)   and (max-device-width: 1600px)   and (-webkit-min-device-pixel-ratio: 2)  and (min-resolution: 192dpi) {
+        .bx-composite-btn {
+            background-image: url("sprite-2x.png") /*tpa=http://gcmatrix.com/bitrix/images/main/composite/sprite-2x.png*/;
+            background-size: 42px 124px;
+        }
+    }
+
+    .bx-composite-btn-fixed {
+        position: absolute;
+        top: -45px;
+        right: 15px;
+        z-index: 10;
+    }
+
+    .bx-btn-white {
+        background-position: right 0;
+        color: #fff !important;
+    }
+
+    .bx-btn-black {
+        background-position: right -31px;
+        color: #000 !important;
+    }
+
+    .bx-btn-red {
+        background-position: right -62px;
+        color: #555 !important;
+    }
+
+    .bx-btn-grey {
+        background-position: right -93px;
+        color: #657b89 !important;
+    }
+
+    .bx-btn-border {
+        border: 1px solid #d4d4d4;
+        height: 29px !important;
+        line-height: 29px !important;
+    }
+
+    .bx-composite-loading {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: url("loading.gif") /*tpa=http://gcmatrix.com/bitrix/images/main/composite/loading.gif*/;
+    }</style>
+    <script type="text/javascript" data-skip-moving="true">(function (w, d) {
+        var v = w.frameCacheVars = {
+            'CACHE_MODE': 'HTMLCACHE',
+            'banner': {
+                'url': 'http://www.1c-bitrix.ru/composite/',
+                'text': 'Быстро с 1С-Битрикс',
+                'bgcolor': '#ff045f',
+                'style': 'white'
+            },
+            'storageBlocks': [],
+            'dynamicBlocks': [],
+            'AUTO_UPDATE': true,
+            'AUTO_UPDATE_TTL': '0'
+        };
+        var inv = false;
+        if (v.AUTO_UPDATE === false) {
+            if (v.AUTO_UPDATE_TTL && v.AUTO_UPDATE_TTL > 0) {
+                var lm = Date.parse(d.lastModified);
+                if (!isNaN(lm)) {
+                    var td = new Date().getTime();
+                    if ((lm + v.AUTO_UPDATE_TTL * 1000) >= td) {
+                        w.frameRequestStart = false;
+                        w.preventAutoUpdate = true;
+                        return;
+                    }
+                    inv = true;
+                }
+            } else {
+                w.frameRequestStart = false;
+                w.preventAutoUpdate = true;
+                return;
+            }
+        }
+        var r = w.XMLHttpRequest ? new XMLHttpRequest() : (w.ActiveXObject ? new w.ActiveXObject("Microsoft.XMLHTTP") : null);
+        if (!r) {
+            return;
+        }
+        w.frameRequestStart = true;
+        var m = v.CACHE_MODE;
+        var l = w.location;
+        var x = new Date().getTime();
+        var q = "?bxrand=" + x + (l.search.length > 0 ? "&" + l.search.substring(1) : "");
+        var u = l.protocol + "//" + l.host + l.pathname + q;
+        r.open("GET", u, true);
+        r.setRequestHeader("BX-ACTION-TYPE", "get_dynamic");
+        r.setRequestHeader("BX-CACHE-MODE", m);
+        r.setRequestHeader("BX-CACHE-BLOCKS", v.dynamicBlocks ? JSON.stringify(v.dynamicBlocks) : "");
+        if (inv) {
+            r.setRequestHeader("BX-INVALIDATE-CACHE", "Y");
+        }
+        try {
+            r.setRequestHeader("BX-REF", d.referrer || "");
+        } catch (e) {
+        }
+        if (m === "APPCACHE") {
+            r.setRequestHeader("BX-APPCACHE-PARAMS", JSON.stringify(v.PARAMS));
+            r.setRequestHeader("BX-APPCACHE-URL", v.PAGE_URL ? v.PAGE_URL : "");
+        }
+        r.onreadystatechange = function () {
+            if (r.readyState != 4) {
+                return;
+            }
+            var a = r.getResponseHeader("BX-RAND");
+            var b = w.BX && w.BX.frameCache ? w.BX.frameCache : false;
+            if (a != x || !((r.status >= 200 && r.status < 300) || r.status === 304 || r.status === 1223 || r.status === 0)) {
+                var f = {error: true, reason: a != x ? "bad_rand" : "bad_status", url: u, xhr: r, status: r.status};
+                if (w.BX && w.BX.ready) {
+                    BX.ready(function () {
+                        setTimeout(function () {
+                            BX.onCustomEvent("onFrameDataRequestFail", [f]);
+                        }, 0);
+                    });
+                } else {
+                    w.frameRequestFail = f;
+                }
+                return;
+            }
+            if (b) {
+                b.onFrameDataReceived(r.responseText);
+                if (!w.frameUpdateInvoked) {
+                    b.update(false);
+                }
+                w.frameUpdateInvoked = true;
+            } else {
+                w.frameDataString = r.responseText;
+            }
+        };
+        r.send();
+    })(window, document);</script>
 
 
-<link href="core.min.css-14451916572854.css" tppabs="http://gcmatrix.com/bitrix/js/main/core/css/core.min.css?14451916572854" type="text/css" rel="stylesheet" />
-<link href="jquery.fancybox.css-14175171805160.css" tppabs="http://gcmatrix.com/css/jquery.fancybox.css?14175171805160" type="text/css" data-template-style="true" rel="stylesheet" />
-<link href="jquery.bxslider.css-14175171804040.css" tppabs="http://gcmatrix.com/css/jquery.bxslider.css?14175171804040" type="text/css" data-template-style="true" rel="stylesheet" />
-<link href="style.css-156947828531018.css" tppabs="http://gcmatrix.com/css/style.css?156947828531018" type="text/css" data-template-style="true" rel="stylesheet" />
-<link href="style.css-1417517180236.css" tppabs="http://gcmatrix.com/local/components/awik/ajax.loader/templates/.default/style.css?1417517180236" type="text/css" data-template-style="true" rel="stylesheet" />
-<link href="styles.css-1554948055583.css" tppabs="http://gcmatrix.com/local/templates/main/styles.css?1554948055583" type="text/css" data-template-style="true" rel="stylesheet" />
-<script type="text/javascript">if(!window.BX)window.BX={message:function(mess){if(typeof mess=='object') for(var i in mess) BX.message[i]=mess[i]; return true;}};</script>
-<script type="text/javascript">(window.BX||top.BX).message({'JS_CORE_LOADING':'Загрузка...','JS_CORE_NO_DATA':'- Нет данных -','JS_CORE_WINDOW_CLOSE':'Закрыть','JS_CORE_WINDOW_EXPAND':'Развернуть','JS_CORE_WINDOW_NARROW':'Свернуть в окно','JS_CORE_WINDOW_SAVE':'Сохранить','JS_CORE_WINDOW_CANCEL':'Отменить','JS_CORE_WINDOW_CONTINUE':'Продолжить','JS_CORE_H':'ч','JS_CORE_M':'м','JS_CORE_S':'с','JSADM_AI_HIDE_EXTRA':'Скрыть лишние','JSADM_AI_ALL_NOTIF':'Показать все','JSADM_AUTH_REQ':'Требуется авторизация!','JS_CORE_WINDOW_AUTH':'Войти','JS_CORE_IMAGE_FULL':'Полный размер'});</script>
-<script type="text/javascript">(window.BX||top.BX).message({'LANGUAGE_ID':'ru','FORMAT_DATE':'http://gcmatrix.com/DD.MM.YYYY','FORMAT_DATETIME':'DD.MM.YYYY HH:MI:SS','COOKIE_PREFIX':'mx','SERVER_TZ_OFFSET':'10800','SITE_ID':'s1','SITE_DIR':'/'});</script>
+    <link href="core.min.css-14451916572854.css"
+          tppabs="http://gcmatrix.com/bitrix/js/main/core/css/core.min.css?14451916572854" type="text/css"
+          rel="stylesheet"/>
+    <link href="jquery.fancybox.css-14175171805160.css"
+          tppabs="http://gcmatrix.com/css/jquery.fancybox.css?14175171805160" type="text/css" data-template-style="true"
+          rel="stylesheet"/>
+    <link href="jquery.bxslider.css-14175171804040.css"
+          tppabs="http://gcmatrix.com/css/jquery.bxslider.css?14175171804040" type="text/css" data-template-style="true"
+          rel="stylesheet"/>
+    <link href="style.css-156947828531018.css" tppabs="http://gcmatrix.com/css/style.css?156947828531018"
+          type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="style.css-1417517180236.css"
+          tppabs="http://gcmatrix.com/local/components/awik/ajax.loader/templates/.default/style.css?1417517180236"
+          type="text/css" data-template-style="true" rel="stylesheet"/>
+    <link href="styles.css-1554948055583.css" tppabs="http://gcmatrix.com/local/templates/main/styles.css?1554948055583"
+          type="text/css" data-template-style="true" rel="stylesheet"/>
+    <script type="text/javascript">if (!window.BX) window.BX = {
+        message: function (mess) {
+            if (typeof mess == 'object') for (var i in mess) BX.message[i] = mess[i];
+            return true;
+        }
+    };</script>
+    <script type="text/javascript">(window.BX || top.BX).message({
+        'JS_CORE_LOADING': 'Загрузка...',
+        'JS_CORE_NO_DATA': '- Нет данных -',
+        'JS_CORE_WINDOW_CLOSE': 'Закрыть',
+        'JS_CORE_WINDOW_EXPAND': 'Развернуть',
+        'JS_CORE_WINDOW_NARROW': 'Свернуть в окно',
+        'JS_CORE_WINDOW_SAVE': 'Сохранить',
+        'JS_CORE_WINDOW_CANCEL': 'Отменить',
+        'JS_CORE_WINDOW_CONTINUE': 'Продолжить',
+        'JS_CORE_H': 'ч',
+        'JS_CORE_M': 'м',
+        'JS_CORE_S': 'с',
+        'JSADM_AI_HIDE_EXTRA': 'Скрыть лишние',
+        'JSADM_AI_ALL_NOTIF': 'Показать все',
+        'JSADM_AUTH_REQ': 'Требуется авторизация!',
+        'JS_CORE_WINDOW_AUTH': 'Войти',
+        'JS_CORE_IMAGE_FULL': 'Полный размер'
+    });</script>
+    <script type="text/javascript">(window.BX || top.BX).message({
+        'LANGUAGE_ID': 'ru',
+        'FORMAT_DATE': 'http://gcmatrix.com/DD.MM.YYYY',
+        'FORMAT_DATETIME': 'DD.MM.YYYY HH:MI:SS',
+        'COOKIE_PREFIX': 'mx',
+        'SERVER_TZ_OFFSET': '10800',
+        'SITE_ID': 's1',
+        'SITE_DIR': '/'
+    });</script>
 
 
-<script type="text/javascript" src="core.min.js-147851119173480" tppabs="http://gcmatrix.com/bitrix/js/main/core/core.min.js?147851119173480"></script>
-<script type="text/javascript" src="core_db.min.js-14646669905048" tppabs="http://gcmatrix.com/bitrix/js/main/core/core_db.min.js?14646669905048"></script>
-<script type="text/javascript" src="core_ajax.min.js-147851119221031" tppabs="http://gcmatrix.com/bitrix/js/main/core/core_ajax.min.js?147851119221031"></script>
-<script type="text/javascript" src="json2.min.js-14175171793467" tppabs="http://gcmatrix.com/bitrix/js/main/json/json2.min.js?14175171793467"></script>
-<script type="text/javascript" src="core_ls.min.js-14451916607365" tppabs="http://gcmatrix.com/bitrix/js/main/core/core_ls.min.js?14451916607365"></script>
-<script type="text/javascript" src="core_fx.min.js-14451916579592" tppabs="http://gcmatrix.com/bitrix/js/main/core/core_fx.min.js?14451916579592"></script>
-<script type="text/javascript" src="core_frame_cache.min.js-147851118811191" tppabs="http://gcmatrix.com/bitrix/js/main/core/core_frame_cache.min.js?147851118811191"></script>
-<script type="text/javascript">var bxDate = new Date(); document.cookie="mx_TIME_ZONE="+bxDate.getTimezoneOffset()+"; path=/; expires=Fri, 01-Jan-2038 00:00:00 GMT"</script>
+    <script type="text/javascript" src="core.min.js-147851119173480"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core.min.js?147851119173480"></script>
+    <script type="text/javascript" src="core_db.min.js-14646669905048"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core_db.min.js?14646669905048"></script>
+    <script type="text/javascript" src="core_ajax.min.js-147851119221031"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core_ajax.min.js?147851119221031"></script>
+    <script type="text/javascript" src="json2.min.js-14175171793467"
+            tppabs="http://gcmatrix.com/bitrix/js/main/json/json2.min.js?14175171793467"></script>
+    <script type="text/javascript" src="core_ls.min.js-14451916607365"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core_ls.min.js?14451916607365"></script>
+    <script type="text/javascript" src="core_fx.min.js-14451916579592"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core_fx.min.js?14451916579592"></script>
+    <script type="text/javascript" src="core_frame_cache.min.js-147851118811191"
+            tppabs="http://gcmatrix.com/bitrix/js/main/core/core_frame_cache.min.js?147851118811191"></script>
+    <script type="text/javascript">var bxDate = new Date();
+    document.cookie = "mx_TIME_ZONE=" + bxDate.getTimezoneOffset() + "; path=/; expires=Fri, 01-Jan-2038 00:00:00 GMT"</script>
 
 
+    <script type="text/javascript" src="jquery-1.11.1.min.js-142112976595790"
+            tppabs="http://gcmatrix.com/js/jquery-1.11.1.min.js?142112976595790"></script>
+    <script type="text/javascript" src="jquery.carouFredSel.js-141751718036181"
+            tppabs="http://gcmatrix.com/js/jquery.carouFredSel.js?141751718036181"></script>
+    <script type="text/javascript" src="jquery.bxslider.min.js-141751718019368"
+            tppabs="http://gcmatrix.com/js/jquery.bxslider.min.js?141751718019368"></script>
+    <script type="text/javascript" src="jquery-ui.js-1417517180485937"
+            tppabs="http://gcmatrix.com/js/jquery-ui.js?1417517180485937"></script>
+    <script type="text/javascript" src="jquery.mask.min.js-14175171804741"
+            tppabs="http://gcmatrix.com/js/jquery.mask.min.js?14175171804741"></script>
+    <script type="text/javascript" src="jquery.formstyler.min.js-141751718015758"
+            tppabs="http://gcmatrix.com/js/jquery.formstyler.min.js?141751718015758"></script>
+    <script type="text/javascript" src="jquery.fancybox.js-141751718050725"
+            tppabs="http://gcmatrix.com/js/jquery.fancybox.js?141751718050725"></script>
+    <script type="text/javascript" src="script.js-14175171807558"
+            tppabs="http://gcmatrix.com/js/script.js?14175171807558"></script>
+    <script type="text/javascript" src="script.js-1417517180990"
+            tppabs="http://gcmatrix.com/local/components/awik/ajax.loader/templates/.default/script.js?1417517180990"></script>
+    <script type="text/javascript" src="script.js-14175171801322"
+            tppabs="http://gcmatrix.com/local/components/matrix/form.request_resume/templates/.default/script.js?14175171801322"></script>
+    <script type="text/javascript" src="script.js-14175171801162"
+            tppabs="http://gcmatrix.com/local/components/matrix/form.request_news/templates/.default/script.js?14175171801162"></script>
+    <script type="text/javascript" src="script.js-14175171801178"
+            tppabs="http://gcmatrix.com/local/components/matrix/form.request_callback/templates/.default/script.js?14175171801178"></script>
+    <script type="text/javascript" src="script.js-14175171802187"
+            tppabs="http://gcmatrix.com/local/components/matrix/form.request_service/script.js?14175171802187"></script>
+    <script type="text/javascript">var _ba = _ba || [];
+    _ba.push(["aid", "72e5454bdb8b62a08488572b66bc822a"]);
+    _ba.push(["host", "http://gcmatrix.com/gcmatrix.com"]);
+    (function () {
+        var ba = document.createElement("script");
+        ba.type = "text/javascript";
+        ba.async = true;
+        ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ba, s);
+    })();</script>
 
-<script type="text/javascript" src="jquery-1.11.1.min.js-142112976595790" tppabs="http://gcmatrix.com/js/jquery-1.11.1.min.js?142112976595790"></script>
-<script type="text/javascript" src="jquery.carouFredSel.js-141751718036181" tppabs="http://gcmatrix.com/js/jquery.carouFredSel.js?141751718036181"></script>
-<script type="text/javascript" src="jquery.bxslider.min.js-141751718019368" tppabs="http://gcmatrix.com/js/jquery.bxslider.min.js?141751718019368"></script>
-<script type="text/javascript" src="jquery-ui.js-1417517180485937" tppabs="http://gcmatrix.com/js/jquery-ui.js?1417517180485937"></script>
-<script type="text/javascript" src="jquery.mask.min.js-14175171804741" tppabs="http://gcmatrix.com/js/jquery.mask.min.js?14175171804741"></script>
-<script type="text/javascript" src="jquery.formstyler.min.js-141751718015758" tppabs="http://gcmatrix.com/js/jquery.formstyler.min.js?141751718015758"></script>
-<script type="text/javascript" src="jquery.fancybox.js-141751718050725" tppabs="http://gcmatrix.com/js/jquery.fancybox.js?141751718050725"></script>
-<script type="text/javascript" src="script.js-14175171807558" tppabs="http://gcmatrix.com/js/script.js?14175171807558"></script>
-<script type="text/javascript" src="script.js-1417517180990" tppabs="http://gcmatrix.com/local/components/awik/ajax.loader/templates/.default/script.js?1417517180990"></script>
-<script type="text/javascript" src="script.js-14175171801322" tppabs="http://gcmatrix.com/local/components/matrix/form.request_resume/templates/.default/script.js?14175171801322"></script>
-<script type="text/javascript" src="script.js-14175171801162" tppabs="http://gcmatrix.com/local/components/matrix/form.request_news/templates/.default/script.js?14175171801162"></script>
-<script type="text/javascript" src="script.js-14175171801178" tppabs="http://gcmatrix.com/local/components/matrix/form.request_callback/templates/.default/script.js?14175171801178"></script>
-<script type="text/javascript" src="script.js-14175171802187" tppabs="http://gcmatrix.com/local/components/matrix/form.request_service/script.js?14175171802187"></script>
-<script type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "72e5454bdb8b62a08488572b66bc822a"]); _ba.push(["host", "http://gcmatrix.com/gcmatrix.com"]); (function() {var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true;ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ba, s);})();</script>
 
+    <title>ОEM производитель №1 - Матрикс</title><!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-<title>ОEM производитель №1 - Матрикс</title><!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(52706338, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="1.gif" tppabs="https://mc.yandex.ru/watch/52706338" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+        ym(52706338, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="1.gif" tppabs="https://mc.yandex.ru/watch/52706338" style="position:absolute; left:-9999px;"
+                  alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div id="panel">
-    </div>
+</div>
 <div class="wrapper">
     <div class="header">
         <div class="layout">
             <div class="logo">
-	<a>
-		<img src="logo-2.png" tppabs="http://gcmatrix.com/img/logo-2.png" alt="Матрикс">
-	</a>
-</div>            <div class="text">
-			中国领先的印刷电路板OEM制造商                       </div>
+                <a>
+                    <img src="/images/logo.jpg" tppabs="http://gcmatrix.com/img//images/logo.jpg" alt="Матрикс">
+                </a>
+            </div>
+            <div class="text">
+                中国领先的印刷电路板OEM制造商
+            </div>
             <div class="phone">
-				<b class="h2">+7 (383) 383-08-05</b><div class="d-flex">
-					<div class="mr-2">
-						<a href="skype:live:a2ad12d4eb62443e?chat" target="_blank"><span class="i-mess i-mess-skype"></span></a>
-						<a href="tg://resolve?domain=matrix_elektronika" target="_blank"><span class="i-mess i-mess-telegram"></span></a>
-						<a href="javascript:if(confirm('https://wa.me/79994638549  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://wa.me/79994638549'" tppabs="https://wa.me/79994638549" target="_blank"><span class="i-mess i-mess-whatsapp"></span></a>
-						<a href="viber://pa?chatURI=matrixelektronika" target="_blank"><span class="i-mess i-mess-viber"></span></a>
-					</div>
-					<div class="comment">ПН-ПТ, с 8 до 16 по МСК					</div>
-				</div>
+                <b class="h2">+7 (383) 383-08-05</b>
+                <div class="d-flex">
+                    <div class="mr-2">
+                        <a href="skype:live:a2ad12d4eb62443e?chat" target="_blank"><span
+                                class="i-mess i-mess-skype"></span></a>
+                        <a href="tg://resolve?domain=matrix_elektronika" target="_blank"><span
+                                class="i-mess i-mess-telegram"></span></a>
+                        <a href="javascript:if(confirm('https://wa.me/79994638549  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://wa.me/79994638549'"
+                           tppabs="https://wa.me/79994638549" target="_blank"><span
+                                class="i-mess i-mess-whatsapp"></span></a>
+                        <a href="viber://pa?chatURI=matrixelektronika" target="_blank"><span
+                                class="i-mess i-mess-viber"></span></a>
+                    </div>
+                    <div class="comment">ПН-ПТ, с 8 до 16 по МСК</div>
+                </div>
             </div>
             <div class="cl"></div>
             <div class="menu">
-    <a href="index.html" tppabs="http://gcmatrix.com/" class="home"></a>
-    <ul>
-		<li>
-                <a href="index.html" tppabs="http://gcmatrix.com/about-company/"  >首页</a>
-            </li>
-		<li>
-                <a href="index-2.htm" tppabs="http://gcmatrix.com/blog/"  >关于我们</a>
-            </li><li>
-                <a href="index-3.htm" tppabs="http://gcmatrix.com/contract-assembly/"  >PCB组装</a>
-            </li><li>
-				<a href="index-pcb.htm" tppabs="http://gcmatrix.com/contract-assembly/"  >PCB</a>
-            </li><li>
-                <a href="index-4.htm" tppabs="http://gcmatrix.com/components/"  >电子元器件</a>
-            </li></ul>
-    <div class="cl"></div>
-</div>        </div>
+                <a href="index.html" tppabs="http://gcmatrix.com/" class="home"></a>
+                <ul>
+                    <li>
+                        <a href="index.html" tppabs="http://gcmatrix.com/about-company/">首页</a>
+                    </li>
+                    <li>
+                        <a href="index-2.htm" tppabs="http://gcmatrix.com/blog/">关于我们</a>
+                    </li>
+                    <li>
+                        <a href="index-3.htm" tppabs="http://gcmatrix.com/contract-assembly/">PCB组装</a>
+                    </li>
+                    <li>
+                        <a href="index-pcb.htm" tppabs="http://gcmatrix.com/contract-assembly/">PCB</a>
+                    </li>
+                    <li>
+                        <a href="index-4.htm" tppabs="http://gcmatrix.com/components/">电子元器件</a>
+                    </li>
+                </ul>
+                <div class="cl"></div>
+            </div>
+        </div>
     </div>
-    <div class="content"><div class="slider">
-    <div class="first-img"></div>
-    <div class="second-img"></div>
-    <div class="layout"><div class="item act" id="bx_3218110189_298">
-                <div class="promo">
-                    <h2 class="h1"><span>100%</span><br>品质</h2>
-                    <div>现在可以为您提供工业生产的质量！<br />
-<br />
-						我们15年的经验和现代技术为装配质量提供了支持。</div>
-                    <a href="#order" class="btn btn_bid contract_assembly">提出要求</a>
+    <div class="content">
+        <div class="slider">
+            <div class="first-img" style="background-image:url(/images/bj.jpg)"></div>
+            <div class="second-img"></div>
+            <div class="layout">
+                <div class="item act" id="bx_3218110189_298">
+                    <div class="promo">
+                        <h2 class="h1"><span>100%</span><br>品质</h2>
+                        <div>现在可以为您提供工业生产的质量！<br/>
+                            <br/>
+                            我们15年的经验和现代技术为装配质量提供了支持。
+                        </div>
+                        <a href="#order" class="btn btn_bid contract_assembly">提出要求</a>
+                    </div>
+                    <a href="#info" class="toggle">PCB组装</a>
+                    <img
+                            src="1e08ecfe12d3d5146cba3cb880e43ad9.jpg"
+                            tppabs="http://gcmatrix.com/upload/resize_cache/iblock/1e0/1903_393_2/1e08ecfe12d3d5146cba3cb880e43ad9.jpg"
+                            alt="Контрактная сборка"
+                            title="Контрактная сборка"
+                            class="bg"
+                    >
                 </div>
-                <a href="#info" class="toggle">PCB组装</a>
-                <img
-						src="1e08ecfe12d3d5146cba3cb880e43ad9.jpg" tppabs="http://gcmatrix.com/upload/resize_cache/iblock/1e0/1903_393_2/1e08ecfe12d3d5146cba3cb880e43ad9.jpg"
-						alt="Контрактная сборка"
-						title="Контрактная сборка"
-						class="bg"
-                >
-            </div><div class="item" id="bx_3218110189_299">
-                <div class="promo">
-                    <h2 class="h1"><span>200%</span><br>Качество</h2>
-                    <div>现在可以为您提供工业生产的质量！<br />
-<br />
-						我们15年的经验和现代技术为装配质量提供了支持。</div>
-                    <a href="#order" class="btn btn_bid circuit_packs">提出要求</a>
+                <div class="item" id="bx_3218110189_299">
+                    <div class="promo">
+                        <h2 class="h1"><span>200%</span><br>Качество</h2>
+                        <div>现在可以为您提供工业生产的质量！<br/>
+                            <br/>
+                            我们15年的经验和现代技术为装配质量提供了支持。
+                        </div>
+                        <a href="#order" class="btn btn_bid circuit_packs">提出要求</a>
+                    </div>
+                    <a href="#info" class="toggle">PCB</a>
+                    <img
+                            src="e71f86e75705dd118383123765e73f60.png"
+                            tppabs="http://gcmatrix.com/upload/resize_cache/iblock/e71/1903_393_2/e71f86e75705dd118383123765e73f60.png"
+                            alt="Печатные платы"
+                            title="Печатные платы"
+                            class="bg"
+                    >
                 </div>
-                <a href="#info" class="toggle">PCB</a>
-                <img
-						src="e71f86e75705dd118383123765e73f60.png" tppabs="http://gcmatrix.com/upload/resize_cache/iblock/e71/1903_393_2/e71f86e75705dd118383123765e73f60.png"
-						alt="Печатные платы"
-						title="Печатные платы"
-						class="bg"
-                >
-            </div><div class="item fr" id="bx_3218110189_300">
-                <div class="promo">
-                    <h2 class="h1"><span>300%</span><br>Качество</h2>
-                    <div>现在可以为您提供工业生产的质量！<br />
-<br />
-						我们15年的经验和现代技术为装配质量提供了支持。</div>
-                    <a href="#order" class="btn btn_bid components">提出要求</a>
+                <div class="item fr" id="bx_3218110189_300">
+                    <div class="promo">
+                        <h2 class="h1"><span>300%</span><br>Качество</h2>
+                        <div>现在可以为您提供工业生产的质量！<br/>
+                            <br/>
+                            我们15年的经验和现代技术为装配质量提供了支持。
+                        </div>
+                        <a href="#order" class="btn btn_bid components">提出要求</a>
+                    </div>
+                    <a href="#info" class="toggle">电子元器件</a>
+                    <img
+                            src="d72aed9cd95e9cc57bfb8075eeff76de.png"
+                            tppabs="http://gcmatrix.com/upload/resize_cache/iblock/d72/1903_393_2/d72aed9cd95e9cc57bfb8075eeff76de.png"
+                            alt="Компоненты"
+                            title="Компоненты"
+                            class="bg"
+                    >
                 </div>
-                <a href="#info" class="toggle">电子元器件</a>
-                <img
-						src="d72aed9cd95e9cc57bfb8075eeff76de.png" tppabs="http://gcmatrix.com/upload/resize_cache/iblock/d72/1903_393_2/d72aed9cd95e9cc57bfb8075eeff76de.png"
-						alt="Компоненты"
-						title="Компоненты"
-						class="bg"
-                >
-            </div><div class="cl"></div>
-    </div>
-</div><div class="infographics">
-    <div class="layout">
-		<div class="left"><div class="item" id="bx_651765591_2">
-			<div class="count">38</div>
-			<p>消防安全项目</p>
-		</div><div class="item" id="bx_651765591_3">
-			<div class="count">43</div>
-			<p>电源项目</p>
-		</div><div class="item fr" id="bx_651765591_4">
-			<div class="count">21</div>
-			<p>视频对讲和对讲项目</p>
-		</div><div class="item" id="bx_651765591_5">
-			<div class="count">26</div>
-			<p>智能家居设备项目</p>
-		</div><div class="item" id="bx_651765591_6">
-			<div class="count">71</div>
-			<p>家电电路设计项目</p>
-		</div><div class="item fr" id="bx_651765591_7">
-			<div class="count">8</div>
-			<p>银行报警器项目</p>
-		</div><div class="cl"></div>
-</div><div class="right"><p>拨打我们的电话</p><div class="magenta">+7 (383) 383-08-05</div><p>并了解为您所在行业的公司完成的项目</p></div>
-			<div class="cl"></div></div>
-</div><div class="benefits">
-	<div class="layout"><h2 class="magenta">为什么选择我们？</h2><div id="tabs"><ul><li id="bx_3946748719_1"><a href="#tabs-1"><span>PCB组装</span></a></li><li id="bx_3946748719_2"><a href="#tabs-2"><span>PCB</span></a></li><li id="bx_3946748719_3"><a href="#tabs-3"><span>电子元器件</span></a></li></ul><div class="cl"></div><div id="tabs-1"><div class="item" id="bx_3946748719_21">
-							<img
-									src="bdb819778e105b13986f05db6fbe3451.png" tppabs="http://gcmatrix.com/upload/iblock/bdb/bdb819778e105b13986f05db6fbe3451.png"
-									alt="Быстрые сроки производства"
-									title="Быстрые сроки производства"
-							>
-							<p>快速的生产时间</p>
-						</div><div class="item" id="bx_3946748719_28">
-							<img
-									src="e7b4903414895987a386ca963c72774a.png" tppabs="http://gcmatrix.com/upload/iblock/e7b/e7b4903414895987a386ca963c72774a.png"
-									alt="Соответствие стандарту качества ISO9000"
-									title="Соответствие стандарту качества ISO9000"
-							>
-							<p>符合ISO9000质量标准</p>
-						</div><div class="item" id="bx_3946748719_22">
-							<img
-									src="92e09106690ca5a6b391acda1b453b14.png" tppabs="http://gcmatrix.com/upload/iblock/92e/92e09106690ca5a6b391acda1b453b14.png"
-									alt="Низкий процент брака по монтажу"
-									title="Низкий процент брака по монтажу"
-							>
-							<p>安装缺陷率低</p>
-						</div><div class="item fr" id="bx_3946748719_26">
-							<img
-									src="38c6a251af061cc8aab63d27ac0db953.png" tppabs="http://gcmatrix.com/upload/iblock/38c/38c6a251af061cc8aab63d27ac0db953.png"
-									alt="Быстрая доставка"
-									title="Быстрая доставка"
-							>
-							<p>交货快捷</p>
-						</div><div class="cl"></div>
-				</div><div id="tabs-2" class="threecols"><div class="item" id="bx_3946748719_29">
-							<img
-									src="ac0e1cf0840cd47e4bed9deac6e037f2.png" tppabs="http://gcmatrix.com/upload/iblock/ac0/ac0e1cf0840cd47e4bed9deac6e037f2.png"
-									alt="Оптимальное соотношение цены и качества"
-									title="Оптимальное соотношение цены и качества"
-							>
-							<p>有能力的物流减少交货时间</p>
-						</div><div class="item" id="bx_3946748719_30">
-							<img
-									src="24a103f53a17050c5c0c90bb0679e99c.png" tppabs="http://gcmatrix.com/upload/iblock/24a/24a103f53a17050c5c0c90bb0679e99c.png"
-									alt="грамотная логистика для снижения сроков"
-									title="грамотная логистика для снижения сроков"
-							>
-							<p>高品质的成品</p>
-						</div><div class="item fr" id="bx_3946748719_31">
-							<img
-									src="10cb5fdc78f2d580035022eca59be706.png" tppabs="http://gcmatrix.com/upload/iblock/10c/10cb5fdc78f2d580035022eca59be706.png"
-									alt="Высокое качество готовой продукции"
-									title="Высокое качество готовой продукции"
-							>
-							<p>电路板乘法以优化生产和运输</p>
-						</div><div class="item" id="bx_3946748719_32">
-							<img
-									src="d4c01e0cbeca609c32685b519fab7259.png" tppabs="http://gcmatrix.com/upload/iblock/d4c/d4c01e0cbeca609c32685b519fab7259.png"
-									alt="Мультиплицирование плат для оптимизации производства и транспортировки"
-									title="Мультиплицирование плат для оптимизации производства и транспортировки"
-							>
-							<p>电路板乘法以优化生产和运输</p>
-						</div><div class="item" id="bx_3946748719_33">
-							<img
-									src="c1fedadbc9fca7d9aebcb1b80a2409c2.png" tppabs="http://gcmatrix.com/upload/iblock/c1f/c1fedadbc9fca7d9aebcb1b80a2409c2.png"
-									alt="Срок ожидания 4-5 недель - цена заказа ниже рынка"
-									title="Срок ожидания 4-5 недель - цена заказа ниже рынка"
-							>
-							<p>等待期4-5周-订单价格低于市场</p>
-						</div><div class="item fr" id="bx_3946748719_34">
-							<img
-									src="af2c03381348c70d75688697c44dafa8.png" tppabs="http://gcmatrix.com/upload/iblock/af2/af2c03381348c70d75688697c44dafa8.png"
-									alt="Можем обеспечить большие объемы производства"
-									title="Можем обеспечить большие объемы производства"
-							>
-							<p>我们可以提供大量生产</p>
-						</div><div class="cl"></div>
-				</div><div id="tabs-3" class="threecols"><div class="item" id="bx_3946748719_438">
-							<img
-									src="check_60.png" tppabs="http://gcmatrix.com/upload/iblock/38e/check_60.png"
-									alt="производство кабельной продукции, смотка в жгут, сборка, опрессовка, пайка разъемов различных серий, тестирование, упаковка, маркировка"
-									title="производство кабельной продукции, смотка в жгут, сборка, опрессовка, пайка разъемов различных серий, тестирование, упаковка, маркировка"
-							>
-							<p>电缆产品的生产，卷绕，捆扎，压接，各种系列连接器的焊接，测试，包装，标记</p>
-						</div><div class="item" id="bx_3946748719_439">
-							<img
-									src="check_60-1.png" tppabs="http://gcmatrix.com/upload/iblock/3d0/check_60.png"
-									alt="поставка станков, промышленного оборудования, пружинно-навивной для разделения печатных плат, намоточный итд..."
-									title="поставка станков, промышленного оборудования, пружинно-навивной для разделения печатных плат, намоточный итд..."
-							>
-							<p>供应机床，工业设备，用于分离印刷电路板，缠绕等的弹簧绕线...</p>
-						</div><div class="item fr" id="bx_3946748719_440">
-							<img
-									src="check_60-2.png" tppabs="http://gcmatrix.com/upload/iblock/5db/check_60.png"
-									alt="подбор различных корпусов (металлических, пластиковых) и дальнейшая доработка их под нужды заказчика (фрезеровка, маркировка)"
-									title="подбор различных корпусов (металлических, пластиковых) и дальнейшая доработка их под нужды заказчика (фрезеровка, маркировка)"
-							>
-							<p>选择各种情况（金属，塑料），并根据客户需求进一步完善（铣削，打标）</p>
-						</div><div class="item" id="bx_3946748719_443">
-							<img
-									src="check_60-3.png" tppabs="http://gcmatrix.com/upload/iblock/81c/check_60.png"
-									alt="производство различных моточных изделий, трансформаторов по техническом заданию"
-									title="производство различных моточных изделий, трансформаторов по техническом заданию"
-							>
-							<p>根据技术规格生产各种绕组产品，变压器</p>
-						</div><div class="item" id="bx_3946748719_444">
-							<img
-									src="check_60-4.png" tppabs="http://gcmatrix.com/upload/iblock/6c3/check_60.png"
-									alt="помощь в логистике из Китая и сервисные операции (проверить, замерить согласно совместно согласованному чек листу)"
-									title="помощь в логистике из Китая и сервисные операции (проверить, замерить согласно совместно согласованному чек листу)"
-							>
-							<p>协助中国物流和服务运营（检查，根据共同商定的检查清单进行衡量）</p>
-						</div><div class="item fr" id="bx_3946748719_446">
-							<img
-									src="check_60-5.png" tppabs="http://gcmatrix.com/upload/iblock/b42/check_60.png"
-									alt="размещение производства электронных компонентов в Китае"
-									title="размещение производства электронных компонентов в Китае"
-							>
-							<p>电池和电池组的制造</p>
-						</div><div class="item" id="bx_3946748719_441">
-							<img
-									src="check_60-6.png" tppabs="http://gcmatrix.com/upload/iblock/a42/check_60.png"
-									alt="производство аккумуляторов и аккумуляторных сборок "
-									title="производство аккумуляторов и аккумуляторных сборок "
-							>
-							<p>电子元器件在中国的生产基地 </p>
-						</div><div class="item" id="bx_3946748719_442">
-							<img
-									src="check_60-7.png" tppabs="http://gcmatrix.com/upload/iblock/d90/check_60.png"
-									alt="производство мембранных клавиатур по ТЗ или по образцу "
-									title="производство мембранных клавиатур по ТЗ или по образцу "
-							>
-							<p>根据TK或型号生产薄膜键盘</p>
-						</div><div class="item fr" id="bx_3946748719_445">
-							<img
-									src="check_60-8.png" tppabs="http://gcmatrix.com/upload/iblock/88a/check_60.png"
-									alt="производство GSM\GPS\ГЛОНАС антенн высокого качества формы"
-									title="производство GSM\GPS\ГЛОНАС антенн высокого качества формы"
-							>
-							<p>非标准成型，可缩小至电子元件的触点尺寸</p>
-						</div><div class="item" id="bx_3946748719_437">
-							<img
-									src="check_60-9.png" tppabs="http://gcmatrix.com/upload/iblock/e7d/check_60.png"
-									alt="нестандартная формовка, обрезка по размеру контактов электронных компонентов"
-									title="нестандартная формовка, обрезка по размеру контактов электронных компонентов"
-							>
-							<p>生产高质量形状的GSM \ GPS \ GLONAS天线</p>
-						</div><div class="cl"></div>
-				</div>		</div>
-	</div>
-</div><div class="manufacturer">
-    <div class="layout">
-        <h1>OEM制造商编号1</h1>
-		<div class="text"><p>我们是中国印刷电路板合同组装制造商中的领导者。</p>
-<p>自己的生产和高水平的专家，完善的物流流程以及专有技术使我们能够向市场提供令人难以置信的优质产品。 </p>
-<p>我们可以为任何精度等级的元素提供高级合同装配。</p></div>
-        <div class="cl"></div>
-    </div>
-</div><div class="schema_work">
-	<div class="layout"><h2>完全透明的工作流程</h2><img src="arr_line1.png" tppabs="http://gcmatrix.com/img/arr_line1.png" alt="" class="line fl"><img src="arr_line1.png" tppabs="http://gcmatrix.com/img/arr_line1.png" alt="" class="line fr"><div class="item" id="bx_1373509569_8">
-				<div class="count">1</div>
-				<p>您决定进行生产并面临合同组装的需要</p>
-			</div><div class="item" id="bx_1373509569_9">
-				<div class="count">2</div>
-				<p>通过 <a href="#order" class="btn_bid" ><span>申请表</span></a> 或email我们,邮箱+7（383）209-02-84请求报价</p>
-			</div><div class="item fr" id="bx_1373509569_10">
-				<div class="count">3</div>
-				<p>明确您的需求后，我们的经理会准备一份建议，并在1-2天后您可以全面计算费用和条款。</p>
-			</div><div class="cl"></div><img src="arr_line2.png" tppabs="http://gcmatrix.com/img/arr_line2.png" alt="" class="line"><div class="item" id="bx_1373509569_11">
-				<div class="count">4</div>
-				<p>您需要预付款，我们将开始对该项目进行生产。</p>
-			</div><div class="item" id="bx_1373509569_12">
-				<div class="count">5</div>
-				<p>在整个合作期间，您会收到有关订单状态变化的报告</p>
-			</div><div class="item fr" id="bx_1373509569_13">
-				<div class="count">6</div>
-				<p>您签署接受证书并支付剩余的订单。</p>
-			</div><div class="cl"></div><img src="arr_line3.png" tppabs="http://gcmatrix.com/img/arr_line3.png" alt="" class="line fr"><img src="arr_line3.png" tppabs="http://gcmatrix.com/img/arr_line3.png" alt="" class="line fl"><div class="cl"></div>
-	</div>
-</div><div class="partner_programm">
-    <div class="layout">
-        <h2 class="magenta">灵活的会员计划</h2><div class="text"><p>您没有自己的产品，但想提供合同装配服务？</p>
-<h4>成为我们的合作伙伴！</h4>
-<p>我们使用高质量的方法来解决任务，因此我们准备为您的业务成功发展做出贡献！</p></div>
-        <div class="round"><span class="big">14</span> 
-<p>俄罗斯各地的
-  <br />
-	合作伙伴</p>
-</div>
-        <div class="text fr"><h4>我们的合作伙伴会收到:</h4>
-<ul>
-    <li>品牌包装</li>
-    <li>个人折扣</li>
-    <li>独家供应链</li>
-    <li>个人经理</li>
-    <li>合伙人办公室</li>
-</ul></div>
-        <div class="cl"></div>
-    </div>
-</div><div class="blog">
-	<div class="layout"><h2>Читайте <a href="index-5.htm" tppabs="http://gcmatrix.com/blog/quality/">наш блог</a> об обеспечении качества на производстве</h2><div class="item" id="bx_3485106786_417"><a href="index-6.htm" tppabs="http://gcmatrix.com/blog/quality/the-formation-of-voids-in-solder-joints/">
-						<img
-								src="c5a268cda3a933e621bd7900eb96a236.jpg" tppabs="http://gcmatrix.com/upload/resize_cache/iblock/c5a/135_135_2/c5a268cda3a933e621bd7900eb96a236.jpg"
-								alt="Образование пустот в паяных соединениях"
-								title="Образование пустот в паяных соединениях"
-						>
-					</a><div class="text">
-					<h4>Образование пустот в паяных соединениях</h4>Образование пустот в паяных соединениях — одно из явлений, присущих пайке оплавлением. Пустоты отрицательно влияют на механические свой...<div class="cl"></div><a href="index-6.htm" tppabs="http://gcmatrix.com/blog/quality/the-formation-of-voids-in-solder-joints/">Читать полностью</a></div>
-			</div><div class="item fr" id="bx_3485106786_416"><a href="index-7.htm" tppabs="http://gcmatrix.com/blog/quality/nerazrushaushsii-quality-control-methods-of-mounting-semiconductor-crystals-and-housing-ic/">
-						<img
-								src="4b5ebf1d98983f110230141c94f89840.jpg" tppabs="http://gcmatrix.com/upload/resize_cache/iblock/4b5/135_135_2/4b5ebf1d98983f110230141c94f89840.jpg"
-								alt="Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса ИМС"
-								title="Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса ИМС"
-						>
-					</a><div class="text">
-					<h4>Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса ИМС</h4>В данной статье мы хотим раскрыть перед читателем новые возможности как традиционного метода неразрушающего контроля — лазерной микроин...<div class="cl"></div><a href="index-7.htm" tppabs="http://gcmatrix.com/blog/quality/nerazrushaushsii-quality-control-methods-of-mounting-semiconductor-crystals-and-housing-ic/">Читать полностью</a></div>
-			</div><div class="cl"></div><div class="cl"></div>
-	</div>
-</div>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="infographics">
+            <div class="layout">
+                <div class="left">
+                    <div class="item" id="bx_651765591_2">
+                        <div class="count">38</div>
+                        <p>消防安全项目</p>
+                    </div>
+                    <div class="item" id="bx_651765591_3">
+                        <div class="count">43</div>
+                        <p>电源项目</p>
+                    </div>
+                    <div class="item fr" id="bx_651765591_4">
+                        <div class="count">21</div>
+                        <p>视频对讲和对讲项目</p>
+                    </div>
+                    <div class="item" id="bx_651765591_5">
+                        <div class="count">26</div>
+                        <p>智能家居设备项目</p>
+                    </div>
+                    <div class="item" id="bx_651765591_6">
+                        <div class="count">71</div>
+                        <p>家电电路设计项目</p>
+                    </div>
+                    <div class="item fr" id="bx_651765591_7">
+                        <div class="count">8</div>
+                        <p>银行报警器项目</p>
+                    </div>
+                    <div class="cl"></div>
+                </div>
+                <div class="right"><p>拨打我们的电话</p>
+                    <div class="magenta">+7 (383) 383-08-05</div>
+                    <p>并了解为您所在行业的公司完成的项目</p></div>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="benefits">
+            <div class="layout"><h2 class="magenta">为什么选择我们？</h2>
+                <div id="tabs">
+                    <ul>
+                        <li id="bx_3946748719_1"><a href="#tabs-1"><span>PCB组装</span></a></li>
+                        <li id="bx_3946748719_2"><a href="#tabs-2"><span>PCB</span></a></li>
+                        <li id="bx_3946748719_3"><a href="#tabs-3"><span>电子元器件</span></a></li>
+                    </ul>
+                    <div class="cl"></div>
+                    <div id="tabs-1">
+                        <div class="item" id="bx_3946748719_21">
+                            <img
+                                    src="bdb819778e105b13986f05db6fbe3451.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/bdb/bdb819778e105b13986f05db6fbe3451.png"
+                                    alt="Быстрые сроки производства"
+                                    title="Быстрые сроки производства"
+                            >
+                            <p>快速的生产时间</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_28">
+                            <img
+                                    src="e7b4903414895987a386ca963c72774a.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/e7b/e7b4903414895987a386ca963c72774a.png"
+                                    alt="Соответствие стандарту качества ISO9000"
+                                    title="Соответствие стандарту качества ISO9000"
+                            >
+                            <p>符合ISO9000质量标准</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_22">
+                            <img
+                                    src="92e09106690ca5a6b391acda1b453b14.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/92e/92e09106690ca5a6b391acda1b453b14.png"
+                                    alt="Низкий процент брака по монтажу"
+                                    title="Низкий процент брака по монтажу"
+                            >
+                            <p>安装缺陷率低</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_26">
+                            <img
+                                    src="38c6a251af061cc8aab63d27ac0db953.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/38c/38c6a251af061cc8aab63d27ac0db953.png"
+                                    alt="Быстрая доставка"
+                                    title="Быстрая доставка"
+                            >
+                            <p>交货快捷</p>
+                        </div>
+                        <div class="cl"></div>
+                    </div>
+                    <div id="tabs-2" class="threecols">
+                        <div class="item" id="bx_3946748719_29">
+                            <img
+                                    src="ac0e1cf0840cd47e4bed9deac6e037f2.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/ac0/ac0e1cf0840cd47e4bed9deac6e037f2.png"
+                                    alt="Оптимальное соотношение цены и качества"
+                                    title="Оптимальное соотношение цены и качества"
+                            >
+                            <p>有能力的物流减少交货时间</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_30">
+                            <img
+                                    src="24a103f53a17050c5c0c90bb0679e99c.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/24a/24a103f53a17050c5c0c90bb0679e99c.png"
+                                    alt="грамотная логистика для снижения сроков"
+                                    title="грамотная логистика для снижения сроков"
+                            >
+                            <p>高品质的成品</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_31">
+                            <img
+                                    src="10cb5fdc78f2d580035022eca59be706.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/10c/10cb5fdc78f2d580035022eca59be706.png"
+                                    alt="Высокое качество готовой продукции"
+                                    title="Высокое качество готовой продукции"
+                            >
+                            <p>电路板乘法以优化生产和运输</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_32">
+                            <img
+                                    src="d4c01e0cbeca609c32685b519fab7259.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/d4c/d4c01e0cbeca609c32685b519fab7259.png"
+                                    alt="Мультиплицирование плат для оптимизации производства и транспортировки"
+                                    title="Мультиплицирование плат для оптимизации производства и транспортировки"
+                            >
+                            <p>电路板乘法以优化生产和运输</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_33">
+                            <img
+                                    src="c1fedadbc9fca7d9aebcb1b80a2409c2.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/c1f/c1fedadbc9fca7d9aebcb1b80a2409c2.png"
+                                    alt="Срок ожидания 4-5 недель - цена заказа ниже рынка"
+                                    title="Срок ожидания 4-5 недель - цена заказа ниже рынка"
+                            >
+                            <p>等待期4-5周-订单价格低于市场</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_34">
+                            <img
+                                    src="af2c03381348c70d75688697c44dafa8.png"
+                                    tppabs="http://gcmatrix.com/upload/iblock/af2/af2c03381348c70d75688697c44dafa8.png"
+                                    alt="Можем обеспечить большие объемы производства"
+                                    title="Можем обеспечить большие объемы производства"
+                            >
+                            <p>我们可以提供大量生产</p>
+                        </div>
+                        <div class="cl"></div>
+                    </div>
+                    <div id="tabs-3" class="threecols">
+                        <div class="item" id="bx_3946748719_438">
+                            <img
+                                    src="check_60.png" tppabs="http://gcmatrix.com/upload/iblock/38e/check_60.png"
+                                    alt="производство кабельной продукции, смотка в жгут, сборка, опрессовка, пайка разъемов различных серий, тестирование, упаковка, маркировка"
+                                    title="производство кабельной продукции, смотка в жгут, сборка, опрессовка, пайка разъемов различных серий, тестирование, упаковка, маркировка"
+                            >
+                            <p>电缆产品的生产，卷绕，捆扎，压接，各种系列连接器的焊接，测试，包装，标记</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_439">
+                            <img
+                                    src="check_60-1.png" tppabs="http://gcmatrix.com/upload/iblock/3d0/check_60.png"
+                                    alt="поставка станков, промышленного оборудования, пружинно-навивной для разделения печатных плат, намоточный итд..."
+                                    title="поставка станков, промышленного оборудования, пружинно-навивной для разделения печатных плат, намоточный итд..."
+                            >
+                            <p>供应机床，工业设备，用于分离印刷电路板，缠绕等的弹簧绕线...</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_440">
+                            <img
+                                    src="check_60-2.png" tppabs="http://gcmatrix.com/upload/iblock/5db/check_60.png"
+                                    alt="подбор различных корпусов (металлических, пластиковых) и дальнейшая доработка их под нужды заказчика (фрезеровка, маркировка)"
+                                    title="подбор различных корпусов (металлических, пластиковых) и дальнейшая доработка их под нужды заказчика (фрезеровка, маркировка)"
+                            >
+                            <p>选择各种情况（金属，塑料），并根据客户需求进一步完善（铣削，打标）</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_443">
+                            <img
+                                    src="check_60-3.png" tppabs="http://gcmatrix.com/upload/iblock/81c/check_60.png"
+                                    alt="производство различных моточных изделий, трансформаторов по техническом заданию"
+                                    title="производство различных моточных изделий, трансформаторов по техническом заданию"
+                            >
+                            <p>根据技术规格生产各种绕组产品，变压器</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_444">
+                            <img
+                                    src="check_60-4.png" tppabs="http://gcmatrix.com/upload/iblock/6c3/check_60.png"
+                                    alt="помощь в логистике из Китая и сервисные операции (проверить, замерить согласно совместно согласованному чек листу)"
+                                    title="помощь в логистике из Китая и сервисные операции (проверить, замерить согласно совместно согласованному чек листу)"
+                            >
+                            <p>协助中国物流和服务运营（检查，根据共同商定的检查清单进行衡量）</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_446">
+                            <img
+                                    src="check_60-5.png" tppabs="http://gcmatrix.com/upload/iblock/b42/check_60.png"
+                                    alt="размещение производства электронных компонентов в Китае"
+                                    title="размещение производства электронных компонентов в Китае"
+                            >
+                            <p>电池和电池组的制造</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_441">
+                            <img
+                                    src="check_60-6.png" tppabs="http://gcmatrix.com/upload/iblock/a42/check_60.png"
+                                    alt="производство аккумуляторов и аккумуляторных сборок "
+                                    title="производство аккумуляторов и аккумуляторных сборок "
+                            >
+                            <p>电子元器件在中国的生产基地 </p>
+                        </div>
+                        <div class="item" id="bx_3946748719_442">
+                            <img
+                                    src="check_60-7.png" tppabs="http://gcmatrix.com/upload/iblock/d90/check_60.png"
+                                    alt="производство мембранных клавиатур по ТЗ или по образцу "
+                                    title="производство мембранных клавиатур по ТЗ или по образцу "
+                            >
+                            <p>根据TK或型号生产薄膜键盘</p>
+                        </div>
+                        <div class="item fr" id="bx_3946748719_445">
+                            <img
+                                    src="check_60-8.png" tppabs="http://gcmatrix.com/upload/iblock/88a/check_60.png"
+                                    alt="производство GSM\GPS\ГЛОНАС антенн высокого качества формы"
+                                    title="производство GSM\GPS\ГЛОНАС антенн высокого качества формы"
+                            >
+                            <p>非标准成型，可缩小至电子元件的触点尺寸</p>
+                        </div>
+                        <div class="item" id="bx_3946748719_437">
+                            <img
+                                    src="check_60-9.png" tppabs="http://gcmatrix.com/upload/iblock/e7d/check_60.png"
+                                    alt="нестандартная формовка, обрезка по размеру контактов электронных компонентов"
+                                    title="нестандартная формовка, обрезка по размеру контактов электронных компонентов"
+                            >
+                            <p>生产高质量形状的GSM \ GPS \ GLONAS天线</p>
+                        </div>
+                        <div class="cl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="manufacturer">
+            <div class="layout">
+                <h1>OEM制造商编号1</h1>
+                <div class="text"><p>我们是中国印刷电路板合同组装制造商中的领导者。</p>
+                    <p>自己的生产和高水平的专家，完善的物流流程以及专有技术使我们能够向市场提供令人难以置信的优质产品。 </p>
+                    <p>我们可以为任何精度等级的元素提供高级合同装配。</p></div>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="schema_work">
+            <div class="layout"><h2>完全透明的工作流程</h2><img src="arr_line1.png"
+                                                       tppabs="http://gcmatrix.com/img/arr_line1.png" alt=""
+                                                       class="line fl"><img src="arr_line1.png"
+                                                                            tppabs="http://gcmatrix.com/img/arr_line1.png"
+                                                                            alt="" class="line fr">
+                <div class="item" id="bx_1373509569_8">
+                    <div class="count">1</div>
+                    <p>您决定进行生产并面临合同组装的需要</p>
+                </div>
+                <div class="item" id="bx_1373509569_9">
+                    <div class="count">2</div>
+                    <p>通过 <a href="#order" class="btn_bid"><span>申请表</span></a> 或email我们,邮箱+7（383）209-02-84请求报价</p>
+                </div>
+                <div class="item fr" id="bx_1373509569_10">
+                    <div class="count">3</div>
+                    <p>明确您的需求后，我们的经理会准备一份建议，并在1-2天后您可以全面计算费用和条款。</p>
+                </div>
+                <div class="cl"></div>
+                <img src="arr_line2.png" tppabs="http://gcmatrix.com/img/arr_line2.png" alt="" class="line">
+                <div class="item" id="bx_1373509569_11">
+                    <div class="count">4</div>
+                    <p>您需要预付款，我们将开始对该项目进行生产。</p>
+                </div>
+                <div class="item" id="bx_1373509569_12">
+                    <div class="count">5</div>
+                    <p>在整个合作期间，您会收到有关订单状态变化的报告</p>
+                </div>
+                <div class="item fr" id="bx_1373509569_13">
+                    <div class="count">6</div>
+                    <p>您签署接受证书并支付剩余的订单。</p>
+                </div>
+                <div class="cl"></div>
+                <img src="arr_line3.png" tppabs="http://gcmatrix.com/img/arr_line3.png" alt="" class="line fr"><img
+                        src="arr_line3.png" tppabs="http://gcmatrix.com/img/arr_line3.png" alt="" class="line fl">
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="partner_programm">
+            <div class="layout">
+                <h2 class="magenta">灵活的会员计划</h2>
+                <div class="text"><p>您没有自己的产品，但想提供合同装配服务？</p>
+                    <h4>成为我们的合作伙伴！</h4>
+                    <p>我们使用高质量的方法来解决任务，因此我们准备为您的业务成功发展做出贡献！</p></div>
+                <div class="round"><span class="big">14</span>
+                    <p>俄罗斯各地的
+                        <br/>
+                        合作伙伴</p>
+                </div>
+                <div class="text fr"><h4>我们的合作伙伴会收到:</h4>
+                    <ul>
+                        <li>品牌包装</li>
+                        <li>个人折扣</li>
+                        <li>独家供应链</li>
+                        <li>个人经理</li>
+                        <li>合伙人办公室</li>
+                    </ul>
+                </div>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="blog">
+            <div class="layout"><h2>Читайте <a href="index-5.htm" tppabs="http://gcmatrix.com/blog/quality/">наш
+                блог</a> об обеспечении качества на производстве</h2>
+                <div class="item" id="bx_3485106786_417"><a href="index-6.htm"
+                                                            tppabs="http://gcmatrix.com/blog/quality/the-formation-of-voids-in-solder-joints/">
+                    <img
+                            src="c5a268cda3a933e621bd7900eb96a236.jpg"
+                            tppabs="http://gcmatrix.com/upload/resize_cache/iblock/c5a/135_135_2/c5a268cda3a933e621bd7900eb96a236.jpg"
+                            alt="Образование пустот в паяных соединениях"
+                            title="Образование пустот в паяных соединениях"
+                    >
+                </a>
+                    <div class="text">
+                        <h4>Образование пустот в паяных соединениях</h4>Образование пустот в паяных соединениях — одно
+                        из явлений, присущих пайке оплавлением. Пустоты отрицательно влияют на механические свой...
+                        <div class="cl"></div>
+                        <a href="index-6.htm"
+                           tppabs="http://gcmatrix.com/blog/quality/the-formation-of-voids-in-solder-joints/">Читать
+                            полностью</a></div>
+                </div>
+                <div class="item fr" id="bx_3485106786_416"><a href="index-7.htm"
+                                                               tppabs="http://gcmatrix.com/blog/quality/nerazrushaushsii-quality-control-methods-of-mounting-semiconductor-crystals-and-housing-ic/">
+                    <img
+                            src="4b5ebf1d98983f110230141c94f89840.jpg"
+                            tppabs="http://gcmatrix.com/upload/resize_cache/iblock/4b5/135_135_2/4b5ebf1d98983f110230141c94f89840.jpg"
+                            alt="Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса ИМС"
+                            title="Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса ИМС"
+                    >
+                </a>
+                    <div class="text">
+                        <h4>Неразрущающие методы контроля качества монтажа полупроводниковых кристаллов и корпуса
+                            ИМС</h4>В данной статье мы хотим раскрыть перед читателем новые возможности как
+                        традиционного метода неразрушающего контроля — лазерной микроин...
+                        <div class="cl"></div>
+                        <a href="index-7.htm"
+                           tppabs="http://gcmatrix.com/blog/quality/nerazrushaushsii-quality-control-methods-of-mounting-semiconductor-crystals-and-housing-ic/">Читать
+                            полностью</a></div>
+                </div>
+                <div class="cl"></div>
+                <div class="cl"></div>
+            </div>
+        </div>
 
-    <div class="subscribe">
-    <div class="layout">
-        <div class="form">
-            <h3>订阅电子报</h3>
-            <div class="col"><p>留下您的电子邮件，我们将发送有趣的新闻和有关优化生产的有用提示。 </p>
-<p class="magenta">我们不会打扰您的。 </p>
-<p>通讯每月发生不超过2次。</p>
-</div>
-            <div class="col fr">
-                <form method="POST" action="http://gcmatrix.com/local/components/matrix/form.request_news/component.php" id="form_news">
-                    <input type="text" placeholder="Электронная почта" name="email">
-                    <input type="submit" class="btn" value="Подписаться">
+        <div class="subscribe">
+            <div class="layout">
+                <div class="form">
+                    <h3>订阅电子报</h3>
+                    <div class="col"><p>留下您的电子邮件，我们将发送有趣的新闻和有关优化生产的有用提示。 </p>
+                        <p class="magenta">我们不会打扰您的。 </p>
+                        <p>通讯每月发生不超过2次。</p>
+                    </div>
+                    <div class="col fr">
+                        <form method="POST"
+                              action="http://gcmatrix.com/local/components/matrix/form.request_news/component.php"
+                              id="form_news">
+                            <input type="text" placeholder="email" name="email">
+                            <input type="submit" class="btn" value="订阅">
+                            <div class="cl"></div>
+                            <div class="form_errorbox"></div>
+                            <div class="cl"></div>
+                        </form>
+                    </div>
+                    <div class="cl"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay">
+            <div class="popup">
+                <a href="#close" class="close"></a>
+                <h3>Заявка на услуги</h3>
+                <p>Для того чтобы мы могли быстро и четко обработать вашу заявку - как можно подробнее опишите стоящую
+                    перед вами задачу.</p>
+                <p>Если это необходимо - приложите файлы с заданием.</p>
+                <form
+                        method="POST"
+                        enctype="multipart/form-data"
+                        id="form_request_service"
+                        action="http://gcmatrix.com/local/components/matrix/form.request_service/component.php"
+                >
+                    <label>Имя
+                        <input type="text" name="name">
+                    </label>
+                    <label class="fr">Телефон
+                        <input type="text" class="mask" name="phone">
+                    </label>
+                    <p>Комментарий</p>
+                    <textarea name="comment"></textarea>
+                    <p>Проектная документация</p>
+                    <label>
+                        <input type="file" placeholder="Прикрепите файл" data-placeholder="Прикрепите файл"
+                               name="file[]">
+                    </label>
+                    <div class="tooltype fr">
+                        <span class="file_loaded">Загружено</span>&nbsp;<span class="filecount">0</span>&nbsp;<span
+                            class="file_count">файлов</span>
+                    </div>
+                    <input type="text" name="email" hidden>
                     <div class="cl"></div>
                     <div class="form_errorbox"></div>
                     <div class="cl"></div>
+                    <input type="text" name="REQUEST_TITLE" value="" hidden>
+                    <input type="submit" class="btn fr" value="Отправить">
                 </form>
+                <div class="cl"></div>
             </div>
-            <div class="cl"></div>
+            <div class="done">
+                <a href="#close" class="close"></a>
+                <h3>Спасибо за обращение!</h3>
+                <p>Ваше сообщение отправлено.</p><a href="#close" class="btn fr">Пожалуйста</a>
+                <div class="cl"></div>
+            </div>
         </div>
     </div>
-</div><div class="question">
-    <div class="layout">
-        <div class="text"><h3>Всё нравится?</h3><p>Каждый менеджер нашей компании - настоящий профессионал в делах контрактной сборки. Свяжитесь с нами и мы поможем вам решить ваши задачи быстро, четко, без брака и лишней головной боли.</p></div>
-        <div class="text fr"><h3>Остались вопросы?</h3><p>Мы уверены на все 100%, что наше предложение лучшее по соотношению цены и качества. Мы свяжемся с вами в кратчайшие сроки, поможем, проконсультируем и развеем последние сомнения.</p>        </div>
-        <div class="cl"></div>
+    <div class="footer">
+        <div class="layout">
+            <div class="logo">
+                <a>
+                    <img src="/images/logo.jpg" tppabs="http://gcmatrix.com/img//images/logo.jpg" alt="Матрикс">
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="index-1.htm" tppabs="http://gcmatrix.com/about-company/">О компании</a>
+                    </li>
+                    <li>
+                        <a href="index-2.htm" tppabs="http://gcmatrix.com/blog/">Наш блог</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="index-3.htm" tppabs="http://gcmatrix.com/contract-assembly/">Контрактная сборка</a>
+                    </li>
+                    <li>
+                        <a href="javascript:if(confirm('https://pcb.gcmatrix.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://pcb.gcmatrix.com/'"
+                           tppabs="https://pcb.gcmatrix.com/">Печатные платы</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="index-4.htm" tppabs="http://gcmatrix.com/components/">Компоненты</a>
+                    </li>
+                </ul>
+                <div class="cl"></div>
+            </div>
+            <div class="phone">
+                <b>+7 (383) 383-08-05</b><span>ПН-ПТ, с 8 до 16 по МСК</span>
+            </div>
+            <div class="cl"></div>
+            <div class="copyright_site">©2012-2020保留所有权利BOMIC ELECTRON LLC
+
+                <p align="center">
+                    <br>
+                </p>
+                <p align="center">
+                </p>
+                <p>
+                </p>
+                <br></div>
+            <div class="cl"></div>
+            <div class="bx-composite-bt">
+                <div id="bx-composite-banner"></div>
+            </div>
+        </div>
     </div>
-</div><div class="callback">
-    <div class="layout">
-        <div class="left"><h2 class="magenta">Перезвоним в течение часа!</h2>
-<p>в будние дни время с 10 до 18 часов</p>
 </div>
-        <form method="POST" action="http://gcmatrix.com/local/components/matrix/form.request_callback/component.php" id="form_callback">
-            <label>Контактное лицо
-                <input type="text" name="name">
-            </label>
-            <label>Телефон
-                <input type="text" class="mask" name="phone">
-            </label>
-            <input type="submit" class="btn fr" value="Жду звонка!">
-            <div class="cl"></div>
-            <div class="form_errorbox"></div>
-            <div class="cl"></div>
-        </form>
-        <div class="cl"></div>
-    </div>
-</div><div class="overlay">
-    <div class="popup">
-        <a href="#close" class="close"></a>
-        <h3>Заявка на услуги</h3><p>Для того чтобы мы могли быстро и четко обработать вашу заявку - как можно подробнее опишите стоящую перед вами задачу.</p>
-<p>Если это необходимо - приложите файлы с заданием.</p>    <form
-        method="POST"
-        enctype="multipart/form-data"
-        id="form_request_service"
-        action="http://gcmatrix.com/local/components/matrix/form.request_service/component.php"
-        >
-        <label>Имя
-            <input type="text" name="name">
-        </label>
-        <label class="fr">Телефон
-            <input type="text" class="mask" name="phone">
-        </label>
-        <p>Комментарий</p>
-        <textarea name="comment"></textarea>
-        <p>Проектная документация</p>
-        <label>
-            <input type="file" placeholder="Прикрепите файл" data-placeholder="Прикрепите файл" name="file[]">
-        </label>
-        <div class="tooltype fr">
-            <span class="file_loaded">Загружено</span>&nbsp;<span class="filecount">0</span>&nbsp;<span class="file_count">файлов</span>
-        </div>
-        <input type="text" name="email" hidden>
-        <div class="cl"></div>
-        <div class="form_errorbox"></div>
-        <div class="cl"></div>
-        <input type="text" name="REQUEST_TITLE" value="" hidden>
-        <input type="submit" class="btn fr" value="Отправить">
-    </form>
-    <div class="cl"></div></div>
-    <div class="done">
-        <a href="#close" class="close"></a><h3>Спасибо за обращение!</h3>
-<p>Ваше сообщение отправлено.</p><a href="#close" class="btn fr">Пожалуйста</a>
-        <div class="cl"></div>
-    </div>
-</div>            </div>
-            <div class="footer">
-                <div class="layout">
-                    <div class="logo">
-	<a>
-		<img src="logo-2.png" tppabs="http://gcmatrix.com/img/logo-2.png" alt="Матрикс">
-	</a>
-</div><div class="menu">
-    <ul><li>
-                <a href="index-1.htm" tppabs="http://gcmatrix.com/about-company/">О компании</a>
-            </li><li>
-                <a href="index-2.htm" tppabs="http://gcmatrix.com/blog/">Наш блог</a>
-            </li></ul><ul><li>
-                <a href="index-3.htm" tppabs="http://gcmatrix.com/contract-assembly/">Контрактная сборка</a>
-            </li><li>
-                <a href="javascript:if(confirm('https://pcb.gcmatrix.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://pcb.gcmatrix.com/'" tppabs="https://pcb.gcmatrix.com/">Печатные платы</a>
-            </li></ul><ul><li>
-                <a href="index-4.htm" tppabs="http://gcmatrix.com/components/">Компоненты</a>
-            </li></ul>
-    <div class="cl"></div>
-</div>                    <div class="phone">
-                        <b>+7 (383) 383-08-05</b><span>ПН-ПТ, с 8 до 16 по МСК</span>
-                    </div>
-                    <div class="cl"></div>
-                    <div class="copyright_site">©2012-2020 Все права защищены ООО «МАТРИКС ЭЛЕКТРОНИКА»
-<p align="center">
- <br>
-</p>
-<p align="center">
-</p>
-<p>
-</p>
- <br></div>
-                    <div class="cl"></div>
-                    <div class="bx-composite-bt">
-                        <div id="bx-composite-banner"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		<!-- BEGIN JIVOSITE CODE {literal} -->
+<!-- BEGIN JIVOSITE CODE {literal} -->
 <script type='text/javascript'>
-(function(){ var widget_id = 'SVoXb2A8Sx';var d=document;var w=window;function l(){
-  var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
-  s.src = '//code.jivosite.com/script/widget/'+widget_id
-    ; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
-  if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}
-  else{w.addEventListener('load',l,false);}}})();
+    (function () {
+        var widget_id = 'SVoXb2A8Sx';
+        var d = document;
+        var w = window;
+
+        function l() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//code.jivosite.com/script/widget/' + widget_id
+            ;var ss = document.getElementsByTagName('script')[0];
+            ss.parentNode.insertBefore(s, ss);
+        }
+
+        if (d.readyState == 'complete') {
+            l();
+        } else {
+            if (w.attachEvent) {
+                w.attachEvent('onload', l);
+            }
+            else {
+                w.addEventListener('load', l, false);
+            }
+        }
+    })();
 </script>
 <!-- {/literal} END JIVOSITE CODE -->
-    </body>
+</body>
 </html><!--e2260f8fbb19a4604ac3ff717f77f030-->
