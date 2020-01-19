@@ -1,11 +1,11 @@
 $(function()
 {
-    var $rq_form = $('#form_callback');
+    var $rq_form = $('#form_news');
     var $errorBox = $rq_form.find('.form_errorbox');
     $rq_form.submit(function(){
-        if(self.bIsCallbackFormSending)
+        if(self.bIsNewsFormSending)
             return false;
-        self.bIsCallbackFormSending = true;
+        self.bIsNewsFormSending = true;
         $('#ajax_loader').show();
         var $form = $(this).serializeArray();
         $errorBox.html('');
@@ -16,7 +16,7 @@ $(function()
             function(answ)
             {
                 answ = answ || {};
-                self.bIsCallbackFormSending = false;
+                self.bIsNewsFormSending = false;
                 $('#ajax_loader').hide();
                 switch (answ.status)
                 {

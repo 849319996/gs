@@ -49,7 +49,7 @@ function __ajaxFileTransportCallbackService(answ)
             var $file_count = $rq_form.find('.file_count');
             $file_count.text(plural(self.countfile, ['файл','файла','файлов']));
             $('.overlay, .popup').fadeOut();
-            $('http://gcmatrix.com/local/components/matrix/form.request_service/.overlay, .done').fadeIn();
+            $('.overlay, .done').fadeIn();
             popup_position();
             break;
         default:

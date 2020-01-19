@@ -225,8 +225,8 @@
     document.cookie = "mx_TIME_ZONE=" + bxDate.getTimezoneOffset() + "; path=/; expires=Fri, 01-Jan-2038 00:00:00 GMT"</script>
 
 
-    <script type="text/javascript" src="jquery-1.11.1.min.js"
-            tppabs="http://gcmatrix.com/js/jquery-1.11.1.min.js?142112976595790"></script>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"
+            tppabs="http://gcmatrix.com/js/jquery-3.4.1.min.js?142112976595790"></script>
     <script type="text/javascript" src="jquery.carouFredSel.js"
             tppabs="http://gcmatrix.com/js/jquery.carouFredSel.js?141751718036181"></script>
     <script type="text/javascript" src="jquery.bxslider.min.js"
@@ -245,7 +245,7 @@
             tppabs="http://gcmatrix.com/local/components/awik/ajax.loader/templates/.default/script.js?1417517180990"></script>
     <script type="text/javascript" src="script4.js"
             tppabs="http://gcmatrix.com/local/components/matrix/form.request_resume/templates/.default/script.js?14175171801322"></script>
-    <script type="text/javascript" src="script.js-14175171801162"
+    <script type="text/javascript" src="script7.js"
             tppabs="http://gcmatrix.com/local/components/matrix/form.request_news/templates/.default/script.js?14175171801162"></script>
     <script type="text/javascript" src="script5.js"
             tppabs="http://gcmatrix.com/local/components/matrix/form.request_callback/templates/.default/script.js?14175171801178"></script>
@@ -264,7 +264,7 @@
     })();</script>
 
 
-    <title>ОEM производитель №1 - Матрикс</title><!-- Yandex.Metrika counter -->
+    <title>OEM制造商 NO1</title><!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
             m[i] = m[i] || function () {
@@ -346,7 +346,7 @@
     <div class="content">
         <div class="slider">
             <div class="first-img" style="background-image:url(/images/bj.jpg)"></div>
-            <div class="second-img"></div>
+            <div class="second-img" style="background-image:url(/images/bj.jpg)"></div>
             <div class="layout">
                 <div class="item act" id="bx_3218110189_298">
                     <div class="promo">
@@ -368,7 +368,7 @@
                 </div>
                 <div class="item" id="bx_3218110189_299">
                     <div class="promo">
-                        <h2 class="h1"><span>200%</span><br>Качество</h2>
+                        <h2 class="h1"><span>200%</span><br>品质</h2>
                         <div>现在可以为您提供工业生产的质量！<br/>
                             <br/>
                             我们15年的经验和现代技术为装配质量提供了支持。
@@ -386,7 +386,7 @@
                 </div>
                 <div class="item fr" id="bx_3218110189_300">
                     <div class="promo">
-                        <h2 class="h1"><span>300%</span><br>Качество</h2>
+                        <h2 class="h1"><span>300%</span><br>品质</h2>
                         <div>现在可以为您提供工业生产的质量！<br/>
                             <br/>
                             我们15年的经验和现代技术为装配质量提供了支持。
@@ -511,8 +511,8 @@
                             <img
                                     src="10cb5fdc78f2d580035022eca59be706.png"
                                     tppabs="http://gcmatrix.com/upload/iblock/10c/10cb5fdc78f2d580035022eca59be706.png"
-                                    alt="Высокое качество готовой продукции"
-                                    title="Высокое качество готовой продукции"
+                                    alt="Высокое 品质 готовой продукции"
+                                    title="Высокое 品质 готовой продукции"
                             >
                             <p>电路板乘法以优化生产和运输</p>
                         </div>
@@ -771,46 +771,36 @@
         <div class="overlay">
             <div class="popup">
                 <a href="#close" class="close"></a>
-                <h3>Заявка на услуги</h3>
-                <p>Для того чтобы мы могли быстро и четко обработать вашу заявку - как можно подробнее опишите стоящую
-                    перед вами задачу.</p>
-                <p>Если это необходимо - приложите файлы с заданием.</p>
-                <form
-                        method="POST"
-                        enctype="multipart/form-data"
-                        id="form_request_service"
-                        action="http://gcmatrix.com/local/components/matrix/form.request_service/component.php"
-                >
-                    <label>Имя
-                        <input type="text" name="name">
-                    </label>
-                    <label class="fr">Телефон
-                        <input type="text" class="mask" name="phone">
-                    </label>
-                    <p>Комментарий</p>
-                    <textarea name="comment"></textarea>
-                    <p>Проектная документация</p>
-                    <label>
-                        <input type="file" placeholder="Прикрепите файл" data-placeholder="Прикрепите файл"
-                               name="file[]">
-                    </label>
-                    <div class="tooltype fr">
-                        <span class="file_loaded">Загружено</span>&nbsp;<span class="filecount">0</span>&nbsp;<span
-                            class="file_count">файлов</span>
-                    </div>
-                    <input type="text" name="email" hidden>
-                    <div class="cl"></div>
-                    <div class="form_errorbox"></div>
-                    <div class="cl"></div>
-                    <input type="text" name="REQUEST_TITLE" value="" hidden>
-                    <input type="submit" class="btn fr" value="Отправить">
+                <h3>需求</h3>
+                <p>为了使我们能够快速，清晰地处理您的申请，请详细描述您面临的任务。</p>
+                <p>如有必要，请在任务中附加文件。</p>
+                <div class="download">
+                    <a href="http://127.0.0.1/download/enquiry.xlsx"><img src="/images/excel.png" alt="Excel"><p>Download</p></a><span>(Download the .xls file and then fill out to upload)</span>
+                </div>
+                <div></div>
+                <!--http://127.0.0.1/excelUpload-->
+
+                <form class="form" action="http://127.0.0.1/excelUpload" id="registSubmit" method="post" name="mainform"  enctype="multipart/form-data">
+                    <div class="row"><label for="upName">Name:</label> <input name="upName" id="upName" class="form-st" type="text"></div>
+                    <div class="row"><label for="upEmail">Email:</label> <input name="upEmail" id="subemail" class="form-st" type="text"></div>
+                    <div class="row"><label for="upMobile">Mobile no:</label> <input name="upMobile" id="subphone" class="form-st" type="text"></div>
+                    <div class="row"><label for="attachment">Upload your filled form:</label><input name="file" id="file" data-placeholder="上传文件" class="form-st" type="file"></div>
+                    <div class="row"><input type="submit"  id="submit" name="Submit" value="Send"/></div>
+                    <div class="row"><input type="reset" name="Reset" id="reset" value="Reset"/></div>
+
                 </form>
-                <div class="cl"></div>
+
+            </div>
+        </div>
+
+
+
+        <div class="cl"></div>
             </div>
             <div class="done">
                 <a href="#close" class="close"></a>
-                <h3>Спасибо за обращение!</h3>
-                <p>Ваше сообщение отправлено.</p><a href="#close" class="btn fr">Пожалуйста</a>
+                <h3>感谢您的联系！</h3>
+                <p>您的信息已发送。</p><a href="#close" class="btn fr">谢谢</a>
                 <div class="cl"></div>
             </div>
         </div>
@@ -822,31 +812,7 @@
                     <img src="/images/logo.jpg" tppabs="http://gcmatrix.com/img//images/logo.jpg" alt="Матрикс">
                 </a>
             </div>
-            <div class="menu">
-                <ul>
-                    <li>
-                        <a href="index-1.htm" tppabs="http://gcmatrix.com/about-company/">О компании</a>
-                    </li>
-                    <li>
-                        <a href="index-2.htm" tppabs="http://gcmatrix.com/blog/">Наш блог</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="index-3.htm" tppabs="http://gcmatrix.com/contract-assembly/">Контрактная сборка</a>
-                    </li>
-                    <li>
-                        <a href="javascript:if(confirm('https://pcb.gcmatrix.com/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ�����·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ���?'))window.location='https://pcb.gcmatrix.com/'"
-                           tppabs="https://pcb.gcmatrix.com/">Печатные платы</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="index-4.htm" tppabs="http://gcmatrix.com/components/">Компоненты</a>
-                    </li>
-                </ul>
-                <div class="cl"></div>
-            </div>
+
             <div class="phone">
                 <b>+7 (383) 383-08-05</b><span>周一至周五，9点-18点</span>
             </div>
@@ -895,6 +861,42 @@
             }
         }
     })();
+
+    $('#registSubmit').on('submit', function(){
+        registPost()
+        event.preventDefault() //阻止form表单默认提交
+
+    })
+    function registPost () {
+
+        var file = $('#file')[0].files[0];
+        var subphone= $('#subphone').val();
+        var subemail= $('#subemail').val();
+        var upName= $('#upName').val();
+        var formData = new FormData();
+        formData.append("file", file);
+        formData.append("upMobile", subphone);
+        formData.append("upEmail", subemail);
+        formData.append("upName", upName);
+        $.ajax({
+            type: "post",
+            url: "/excelUpload",
+            data: formData,
+        }).success(function(message) {
+            console.log(message)
+        }).fail(function(err){
+            console.log(err)
+        })
+        /*
+         或者用jquery.form.min.js提交
+         $('#registSubmit').ajaxSubmit(function(message){
+            console.log(message);
+         })
+         */
+    }
+
+
+
 </script>
 <!-- {/literal} END JIVOSITE CODE -->
 </body>

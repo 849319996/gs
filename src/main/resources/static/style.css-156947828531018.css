@@ -1551,9 +1551,7 @@ input{
 }
 .i-mess-viber {
   background-image: url("i-viber.svg")/*tpa=http://gcmatrix.com/img/i-viber.svg*/;
-  @media screen and (max-width: 575px) {
-    display: inline-block;
-  }
+
 }
 
 .production_process .item:not(.first) {
@@ -1565,4 +1563,74 @@ input{
 	border: 1px solid #cdcdcd;
 	height: 324px;
 	margin-top: 0;
+}
+
+ #submit, .addmore, #rfq-container #add-row {
+    background-color: #009B05;
+}
+
+ #reset, .delete, .btnDelete {
+    background: #FC5D5D;
+}
+
+.download {
+    margin: 20px 0px 0px 0px;
+    float: left;
+    margin-left: 50px;
+    border: 1px solid #DADADA;
+    padding: 10px;
+}
+
+.download a img {
+    float: left;
+}
+
+.download a p {
+    text-decoration: none;
+    background-color: #1F7246;
+    margin: 10px 20px;
+    animation: flash 5s linear infinite;
+    -moz-animation: flash 5s linear infinite;
+    -webkit-animation: flash 5s linear infinite;
+    -o-animation: flash 5s linear infinite;
+}
+
+
+#submit,  #reset, .download a p {
+    color: #FFFFFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 10px;
+    float: left;
+    width: 100px;
+    -webkit-transition: background 0.15s ease-in-out 0s;
+    -moz-transition: background 0.15s ease-in-out 0s;
+    -o-transition: background 0.15s ease-in-out 0s;
+    transition: background 0.15s ease-in-out 0s;
+}
+
+.products p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.row2{
+    margin: 20px;
+    border: 1px solid #DADADA;
 }
