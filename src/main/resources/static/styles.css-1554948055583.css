@@ -34,10 +34,7 @@
 
 
 #nav {
-    height: 40px;
-    border-top: #060 2px solid;
-    border-bottom: #060 2px solid;
-    background-color: #690;
+    margin-top: 50px;
 }
 
 #nav ul {
@@ -47,8 +44,10 @@
 
 #nav li {
     display: inline;
-    line-height: 40px;
-    float:left
+    line-height: 1px;
+    float: left;
+    width: 150px;
+    margin-left: -10px;
 }
 
 #nav a {
